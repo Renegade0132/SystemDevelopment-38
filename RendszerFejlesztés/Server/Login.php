@@ -14,15 +14,16 @@
        $username = $_POST['username'];
        $password = $_POST['password'];
 
-        $sql = "SELECT * FROM users WHERE User_Name='$username' AND Password='$password'";
+        $sql = "SELECT * FROM users WHERE username='$username' AND Password='$password'";
         $result = mysqli_query($conn, $sql);
         
 
 
         if(mysqli_num_rows($result) == 1) {
 
-            // Uploading UserName to session
-            $_SESSION['username'] = $username;
+            // Uploading UserID and UserName to session
+            $_SESSION['userID'] = $row["id"];
+            $_SESSION['userName'] = $username;
             
             // Redirect to home page
            header("Location: home.php");

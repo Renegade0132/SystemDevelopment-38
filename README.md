@@ -1,8 +1,8 @@
 # SystememDevelopmen-38
 
-Fresh GitHub Repo - No files yet!
+Login and Registration function ready for testing
+Further functions needed to be made
 
 Tasks to complete
 - Create Base Page 
-- Login - Register functions
-- Create Database - Connect it to the webpage/app
+- Course handler functions
