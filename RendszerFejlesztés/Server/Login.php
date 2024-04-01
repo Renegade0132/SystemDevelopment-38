@@ -1,4 +1,5 @@
 <?php
+    include "DB_Connection.php"
 
     /*
     This Function has to receive an inputUserName, an inputName and an inputPassword through Post method!
@@ -6,8 +7,8 @@
     Checks if the given data (Username and Password) is present and pared correctly in the DataBase, and if it is, logs in the user
     */
 
+    //sessions_start starts a session where variables can be passed down to different pages 
     session_start();
-    
 
     // Processing Log In Data 
        $username = $_POST['username'];
