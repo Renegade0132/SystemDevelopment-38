@@ -1,5 +1,5 @@
 <?php
-
+include "DB_Connection.php";
     /*
     This Function has to receive an inputUserName, an inputName and an inputPassword through Post method!
 
@@ -10,24 +10,25 @@
     
 
     // Processing Log In Data 
-       $username = $_POST['username'];
+       $username = $_POST['userName'];
        $password = $_POST['password'];
 
-        $sql = "SELECT * FROM users WHERE User_Name='$username' AND Password='$password'";
-        $result = mysqli_query($conn, $sql);
-        
+        //Password transforming to hash code
+        $hash = hash('sha256', $password);
 
+        $sql = "SELECT * FROM users WHERE username='$username' AND Password='$hash'";
+        $result = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($result) == 1) {
 
             // Uploading UserName to session
-            $_SESSION['username'] = $username;
+            $_SESSION['userName'] = $username;
             
             // Redirect to home page
-           header("Location: home.php");
+            header("Location: ../Client/HomePage.php");
             exit;
         } else {
-            $_SESSION['message'] ="Wrong Username/Password!";
+            echo "Wrong Username/Password!";
         }
     
 ?>

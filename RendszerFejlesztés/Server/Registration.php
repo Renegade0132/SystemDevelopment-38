@@ -14,10 +14,10 @@
 
     //Empty Field Check - If field is empty, then notify user
     if ($_POST['inputUserName'] != ""){
-    $inputUserName= $_POST['inputUserName'];
-    }else{
-        die("Give a valid username!");
-    }
+        $inputUserName= $_POST['inputUserName'];
+        }else{
+            die("Give a valid username!");
+        }
 
     if ($_POST['inputName'] != ""){
         $inputUserName= $_POST['inputUserName'];
@@ -33,11 +33,17 @@
 
     if ($_POST['inputPassword'] != ""){
         $inputPassword= $_POST['inputPassword'];
-        }else{
-            die("Give a valid passowrd!");
-        }    
+    }else{
+        die("Give a valid passowrd!");
+    }    
 
     //Empty Field Check Over
+
+    //Password transforming to Hash code
+
+    //$hash = hash('sha256', $inputPassword);
+
+    //Transform over
 
     //Same username and email address check to avoid duplicants
 
@@ -64,7 +70,7 @@
     try{
     //sql INSERT - if reached, all data should be correct and can be uploaded to the DB
     $sql = "INSERT INTO users (User_Name,,Name,Email,Password) 
-    VALUES('". $inputUserName ."','". $inputName ."','". $inputEmail ."','". $inputPassword ."');";
+    VALUES('". $inputUserName ."','". $inputName ."','". $inputEmail ."','". $hash ."');";
 
     if ($conn->query($sql) === TRUE) {
         echo "You Registered Succesfully!";

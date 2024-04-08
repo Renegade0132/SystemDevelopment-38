@@ -15,11 +15,20 @@ async function menu_login(divID="screen") {
         var submitButton = form.appendChild(Object.assign(document.createElement("button"), { type: "submit", innerHTML: text.menu_login.login }));
 
         form.addEventListener('submit', function(event) {
+            var http = new XMLHttpRequest();
+
             event.preventDefault();
-            var username = menuLoginUserInput.value;
+            var userName = menuLoginUserInput.value;
             var password = menuLoginPasswordInput.value;
-            console.log("Username:", username);
-            console.log("Password:", password);
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+        
+            http.open("POST", "../Server/Login.php", true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send("userName=" + userName + "&password=" +  password );
         });
     } catch (error) {
         console.error('Error:', error);
