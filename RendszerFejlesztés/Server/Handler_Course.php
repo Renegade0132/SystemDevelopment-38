@@ -1,6 +1,6 @@
 <?php
-include "DB_Connection"
-include "Class_Course.php"
+include "DB_Connection";
+include "Class_Course.php";
 
 class Handle_Course{
     private $list_Courses = array();

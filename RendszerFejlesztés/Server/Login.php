@@ -25,10 +25,11 @@ include "DB_Connection.php";
             $_SESSION['userName'] = $username;
             
             // Redirect to home page
-            header("Location: ../Client/HomePage.php");
+            //header("Location: ../Client/Home.php");
+            echo 1;
             exit;
         } else {
-            echo "Wrong Username/Password!";
+            echo 0;
         }
     
 ?>
