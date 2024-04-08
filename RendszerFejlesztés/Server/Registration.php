@@ -39,6 +39,8 @@
 
     //Empty Field Check Over
 
+    $hash = hash('sha256',$inputPassword);
+
     //Same username and email address check to avoid duplicants
 
     $UName_Check = mysqli_real_escape_string($conn, $inputUserName);
@@ -64,7 +66,7 @@
     try{
     //sql INSERT - if reached, all data should be correct and can be uploaded to the DB
     $sql = "INSERT INTO users (User_Name,,Name,Email,Password) 
-    VALUES('". $inputUserName ."','". $inputName ."','". $inputEmail ."','". $inputPassword ."');";
+    VALUES('". $inputUserName ."','". $inputName ."','". $inputEmail ."','". $hash ."');";
 
     if ($conn->query($sql) === TRUE) {
         echo "You Registered Succesfully!";
