@@ -33,13 +33,17 @@
 
     if ($_POST['inputPassword'] != ""){
         $inputPassword= $_POST['inputPassword'];
-        }else{
-            die("Give a valid passowrd!");
-        }    
+    }else{
+        die("Give a valid passowrd!");
+    }    
 
     //Empty Field Check Over
 
-    $hash = hash('sha256',$inputPassword);
+    //Password transforming to Hash code
+
+    $hash = hash('sha256', $inputPassword);
+
+    //Transform over
 
     //Same username and email address check to avoid duplicants
 

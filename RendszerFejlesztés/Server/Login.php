@@ -13,12 +13,11 @@
        $username = $_POST['username'];
        $password = $_POST['password'];
 
-       $hash = hash('sha256',$password);
+        //Password transforming to hash code
+        $hash = hash('sha256', $password);
 
-        $sql = "SELECT * FROM users WHERE User_Name='$username' AND Password='$hash'";
+        $sql = "SELECT * FROM users WHERE username='$username' AND Password='$hash'";
         $result = mysqli_query($conn, $sql);
-        
-
 
         if(mysqli_num_rows($result) == 1) {
 
@@ -26,7 +25,7 @@
             $_SESSION['username'] = $username;
             
             // Redirect to home page
-           header("Location: home.php");
+            header("Location: home.php");
             exit;
         } else {
             $_SESSION['message'] ="Wrong Username/Password!";

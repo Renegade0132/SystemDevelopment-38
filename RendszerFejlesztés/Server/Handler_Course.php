@@ -18,7 +18,8 @@ class Handle_Course{
 
     }
 
-    //Finds a given user's Courses and returns with an array
+    //Finds a given user's Courses and returns with an array 
+    //-- Should search list_Courses rather than the DB! -- Should consider returning with a string formated as a table for webpage use!
     function FindUserCourses($UserName){
         $foundCourses = array();
 
@@ -32,6 +33,22 @@ class Handle_Course{
             array_push($foundCourses, array($row["id","code","name","credit"]));
         }
 
+        return $foundCourses;
+
+    }
+
+    //Returns all Courses as string and formated as a table for quicker use 
+    function ListAllCourses(){
+        var $returnTable = "<table><tr><td>ID</td><td>Code</td><td>Name</td><td>Credit</td></tr>";
+
+        //loading course contents into string 
+        for($Course : $list_Courses){
+            $returnTable += "<tr><td>" . $Course[1] . "</td><td>" . $Course[2] . "</td><td>" . $Course[3] . "</td><td>" . $Course[4] . "</td>";
+        }
+
+        $returnTable += "</table>"
+
+        return $returnTable;
     }
 }
 ?>
