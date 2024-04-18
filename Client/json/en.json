@@ -1,0 +1,9 @@
+{
+    "title": "Moodle",
+    "menu_button_back":"Back",
+    "menu_login": {
+        "login": "Login",
+        "user": "User",
+        "password": "Password"
+    }
+}
