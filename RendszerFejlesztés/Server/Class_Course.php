@@ -42,6 +42,7 @@ class Course {
     function setCourseCredit($inputCourseCredit){
         $this->CourseCredit = $inputCourseCredit;
     }
+
 }
 
 ?>

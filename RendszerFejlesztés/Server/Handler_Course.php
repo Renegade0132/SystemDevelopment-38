@@ -1,5 +1,5 @@
 <?php
-include "DB_Connection";
+include "DB_Connection.php";
 include "Class_Course.php";
 
 class Handle_Course{
@@ -13,7 +13,7 @@ class Handle_Course{
 
         if($queryResult->num_rows > 0){
             while($row = $queryResult->fetch_assoc())
-            array_push($list_Courses, array($row["id","code","name","credit"]));
+            array_push($list_Courses, array($row["id"],$row["code"],$row["name"],$row["credit"]));
         }
 
     }
@@ -30,7 +30,7 @@ class Handle_Course{
 
         if($queryResult->num_rows > 0){
             while($row = $queryResult->fetch_assoc())
-            array_push($foundCourses, array($row["id","code","name","credit"]));
+            array_push($foundCourses, array($row["id"],$row["code"],$row["name"],$row["credit"]));
         }
 
         return $foundCourses;
@@ -39,16 +39,7 @@ class Handle_Course{
 
     //Returns all Courses as string and formated as a table for quicker use 
     function ListAllCourses(){
-        var $returnTable = "<table><tr><td>ID</td><td>Code</td><td>Name</td><td>Credit</td></tr>";
-
-        //loading course contents into string 
-        for($Course : $list_Courses){
-            $returnTable += "<tr><td>" . $Course[1] . "</td><td>" . $Course[2] . "</td><td>" . $Course[3] . "</td><td>" . $Course[4] . "</td>";
-        }
-
-        $returnTable += "</table>"
-
-        return $returnTable;
+        
     }
 }
 ?>

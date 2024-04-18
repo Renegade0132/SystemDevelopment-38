@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <link rel="shortcut icon" href="favicon.ico"/>
+<script src="js/functions.js"></script>
 <script src="js/json.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/onload.js"></script>

@@ -1,0 +1,28 @@
+{
+    "title": "Moodle",
+    "menu_button_back": "Vissza",
+    "menu_login": {
+        "login": "Bejelentkezés",
+        "user": "Felhasználó",
+        "password": "Jelszó"
+    },
+    "menu_main": {
+        "courses": "Kurzusok",
+        "dashboard": "Irányítópult",
+        "my_courses": "Kurzusaim"
+    },
+    "menu_alert": "értesítések",
+    "menu_user": {
+        "profile": "Profil",
+        "grades": "Jegyek",
+        "calendar": "Kalendárium",
+        "language": "Nyelv",
+        "logout": "Kijelentkezés"
+    },
+    "text": {
+        "welcome": "Üdvözöljük",
+        "usertype_0": "Admin",
+        "usertype_1": "Tanár",
+        "usertype_2": "Tanuló"
+    }
+}
