@@ -19,7 +19,7 @@ class MyChat implements MessageComponentInterface {
         $this->clients->attach($conn);
 
         //Send Positive Acknowledgement
-        
+        $conn->send("Connection established! Your client ID is: " . $conn->resourceId);
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
