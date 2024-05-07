@@ -1,8 +1,8 @@
 <?php
 require 'vendor/autoload.php';
-require_once 'Database.php';
-require_once 'User.php';
-require_once 'Course.php';
+include "DB_Connection.php";
+require_once 'Class_User.php';
+require_once 'Class_Course.php';
 
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
@@ -17,6 +17,9 @@ class MyChat implements MessageComponentInterface {
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection
         $this->clients->attach($conn);
+
+        //Send Positive Acknowledgement
+        
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
