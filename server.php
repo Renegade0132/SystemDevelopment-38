@@ -14,12 +14,12 @@ class MyChat implements MessageComponentInterface {
         $this->clients = new \SplObjectStorage;
     }
 
-    public function onOpen(ConnectionInterface $conn) {
+    public function onOpen(ConnectionInterface $connInterface) {
         // Store the new connection
-        $this->clients->attach($conn);
+        $this->clients->attach($connInterface);
 
         //Send Positive Acknowledgement
-        $conn->send("Connection established! Your client ID is: " . $conn->resourceId);
+        $connInterface->send("Connection established! Your client ID is: " . $connInterface->resourceId);
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -28,14 +28,14 @@ class MyChat implements MessageComponentInterface {
         // then use your User, Course, and Database classes to fulfill the request
     }
 
-    public function onClose(ConnectionInterface $conn) {
+    public function onClose(ConnectionInterface $connInterface) {
         // Remove the connection when it closes
-        $this->clients->detach($conn);
+        $this->clients->detach($connInterface);
     }
 
-    public function onError(ConnectionInterface $conn, \Exception $e) {
+    public function onError(ConnectionInterface $connInterface, \Exception $e) {
         // Handle errors
-        $conn->close();
+        $connInterface->close();
     }
 }
 
