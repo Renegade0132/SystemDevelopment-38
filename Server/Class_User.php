@@ -1,4 +1,5 @@
 <?php
+include "DB_Connection.php";
 
 class User
 {
@@ -88,6 +89,65 @@ class User
     }
 }
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($_POST["name"]) && isset($_POST["degreeID"]) && isset($_POST["userType"])) {
+    echo "User modify succesfully called";
+    session_start();
+    if (isset($_SESSION["User"])) {
+        $userObj = unserialize($_SESSION["User"]);
+        
+        $userID = $userObj->getID();
+        $currentUserName = $userObj->getName();
+        $userName = $_POST["userName"];
+        $name = $_POST["name"];
+        $degreeID = $_POST["degreeID"];
+        $userType = $_POST["userType"];
+        $sql = "UPDATE users SET ";
+
+        if($userName == "" || $userName == " " || $userName == null){            
+            $sql .= " username =  ' $currentUserName '";
+        }else{
+            $sql .= " username = '$userName'";
+        }
+
+        if($name == "" || $name == " " || $name == null){            
+        }else{
+            $sql .= ", name = '$name'";
+        }
+        
+        /*if($userObj->getDegreeID() != null && ($degreeID == null || $degreeID =="")){
+            echo "Invalid way to set DegreeID";
+        }else{
+            $sql .= ", degree_id = '$degreeID'";
+        }*/
+        
+        if($userType == "" || $userType == " " || $userType == null){
+        }else{
+            $sql .= ", user_type = '$userType'";
+        }
+        
+        $sql .=  " WHERE id = '$userID'; ";
+
+        //$sql = "UPDATE users SET username = '$userName', name = 'name', degree_id = '$degreeID', user_type = '$userType' WHERE id = '$userID'; ";
+        if($conn->query($sql) === TRUE){
+            $userObj->setUserName($userName);
+            $userObj->setName($name);
+            $userObj->setDegreeID($degreeID);
+            $userObj->setUserType($userType);
+
+            $_SESSION["User"] = serialize($userObj);
+            echo "Update succesful!";
+            
+        }else{
+            echo "Update failed!" . $conn->error;
+            
+        }
+
+    }else{
+        echo "Session[User] is not available!";
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["variableToGet"])) {
     $variableToEcho = $_POST["variableToGet"];
     session_start();
@@ -118,6 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["variableToGet"])) {
                 break;
         }
     }else{
-        echo "Session[User] is not available";
+        echo "Session[User] is not available!";
     }
 }
+
+?>

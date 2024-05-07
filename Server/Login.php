@@ -30,9 +30,11 @@ include "Class_User.php";
             // Redirect to home page
             //header("Location: ../Client/Home.php");
             echo 1;
+            $conn->close();
             exit;
         } else {
             echo 0;
+            $conn->close();
         }
     
 ?>

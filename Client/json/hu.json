@@ -1,19 +1,29 @@
 {
     "title": "Moodle",
-    "menu_button_back": "Vissza",
-    "menu_login": {
+    "button_back": "Vissza",
+    "login": {
         "login": "Bejelentkezés",
         "user": "Felhasználó",
         "password": "Jelszó"
     },
-    "menu_main": {
+    "menu": {
+        "main":"Kezdőoldal",
         "courses": "Kurzusok",
         "dashboard": "Irányítópult",
-        "my_courses": "Kurzusaim"
+        "my_courses": "Kurzusaim",
+        "alerts": "Értesítések"
     },
-    "menu_alert": "értesítések",
-    "menu_user": {
-        "profile": "Profil",
+    "user": {
+        "profile": {
+            "title": "Profil",
+            "modify": "Adatok módosítása",
+            "username": "Felhasználónév",
+            "name": "Név",
+            "password": "Jelszó",
+            "degree_id": "Diploma Azonosító",
+            "user_type": "Felhasználó típusa",
+            "save": "Mentés"
+        },
         "grades": "Jegyek",
         "calendar": "Kalendárium",
         "language": "Nyelv",
