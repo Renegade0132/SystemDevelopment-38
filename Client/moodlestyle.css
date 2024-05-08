@@ -1,0 +1,50 @@
+@import url('loginbackground.css');
+@import url('variables.css');
+#login{
+    
+    background-color: var(--textdiv-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    width: 98vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #4682B4;
+}
+#menu_login_label{
+    background-color: var(--textdiv-color);
+    font-size: 3.5em;
+    font-weight: bold;
+    width: 350px;
+    text-align: center;
+    padding: 5px;
+}
+#menu_login_user_label, #menu_login_password{
+    font-size: 1.8em;
+    width: 350px;
+    padding-top: 10px;
+    background-color: var(--textdiv-color);
+    padding: 5px;
+}
+#menu_login_user_input, #menu_login_password_input{
+    font-size: 1.4em;
+    width: 330px;
+}
+#menu_login_button{
+    margin-top: 5px;
+    font-size: 1.8em;
+    width: 360px;
+    padding: 5px;
+    background-color: var(--button-color);
+    color: white;
+    border: solid;
+    cursor: pointer;
+}
+
+#menu_login_button:hover {
+    background-color: var(--button-hover-color);
+}
+
+#menu_login_button:active {
+    background-color: var(--button-active-color);
+}
