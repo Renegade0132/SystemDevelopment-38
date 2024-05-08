@@ -7,11 +7,11 @@
         "password": "Jelszó"
     },
     "menu": {
-        "main":"Kezdőoldal",
+        "main": "Kezdőoldal",
         "courses": "Kurzusok",
         "dashboard": "Irányítópult",
         "my_courses": "Kurzusaim",
-        "alerts": "Értesítések"
+        "notifications": "Értesítések"
     },
     "user": {
         "profile": {

@@ -1,9 +1,9 @@
-async function main(divID = "screen") {
-    const screen = document.getElementById(divID);
-    var main = screen.appendChild(Object.assign(document.createElement("div"), { id: "main" }));
+async function main(divID = "content") {
+    const content = document.getElementById(divID);
+    var main = content.appendChild(Object.assign(document.createElement("div"), { id: "main" }));
     try {
         const response = await getUserData("name");
-        screen.innerHTML = text.text.welcome + " " + response;
+        content.innerHTML = text.text.welcome + " " + response;
     } catch (error) {
         console.error("Error fetching data:", error);
     }

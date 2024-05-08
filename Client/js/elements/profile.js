@@ -1,19 +1,19 @@
-async function profile(divID = "screen") {
+async function profile(divID = "content") {
     try {
         const username = await getUserData("username");
         const name = await getUserData("name");
         const degreeID = await getUserData("degree_id");
         const userType = await getUserData("user_type");
 
-        const main = document.getElementById(divID);
-        var profileTitle = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_title", innerHTML: text.user.profile.title }));
-        var profileModify = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify", innerHTML: text.user.profile.modify }));
-        var profileModifyUsername = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_username", innerHTML: text.user.profile.username }));
-        var profileModifyName = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_name", innerHTML: text.user.profile.name }));
-        var profileModifyPassword = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_password", innerHTML: text.user.profile.password }));
-        var profileModifyDegreeID = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_degree_id", innerHTML: text.user.profile.degree_id }));
-        var profileModifyUserType = main.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_user_type", innerHTML: text.user.profile.user_type }));
-        var form = main.appendChild(document.createElement("form"));
+        const profile = document.getElementById(divID);
+        var profileTitle = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_title", innerHTML: text.user.profile.title }));
+        var profileModify = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify", innerHTML: text.user.profile.modify }));
+        var profileModifyUsername = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_username", innerHTML: text.user.profile.username }));
+        var profileModifyName = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_name", innerHTML: text.user.profile.name }));
+        var profileModifyPassword = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_password", innerHTML: text.user.profile.password }));
+        var profileModifyDegreeID = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_degree_id", innerHTML: text.user.profile.degree_id }));
+        var profileModifyUserType = profile.appendChild(Object.assign(document.createElement("div"), { id: "profile_modify_user_type", innerHTML: text.user.profile.user_type }));
+        var form = profile.appendChild(document.createElement("form"));
         form.setAttribute("method", "POST");
         var profileModifyUsernameInput = profileModifyUsername.appendChild(Object.assign(document.createElement("input"), { type: "text", id: "profile_modify_username_input", name: "profile_modify_username_input", value: username }));
         var profileModifyNameInput = profileModifyName.appendChild(Object.assign(document.createElement("input"), { type: "text", id: "profile_modify_name_input", name: "profile_modify_name_input", value: name }));
@@ -33,7 +33,7 @@ async function profile(divID = "screen") {
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText) {
                         console.log("Modifying complete");
-                        main.innerHTML = "";
+                        profile.innerHTML = "";
                         user_profile();
                     }
                     else {

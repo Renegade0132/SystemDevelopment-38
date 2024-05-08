@@ -1,8 +1,8 @@
-async function fetch_json(fileName) {
+async function fetchJson(fileName) {
   try {
-    const response = await fetch('json/' + fileName + '.json');
+    const response = await fetch('json/' + fileName);
     if (!response.ok) {
-      throw new Error('Failed to fetch ' + fileName.split(/[\\\/]/).pop() + '.json');
+      throw new Error('Failed to fetch ' + fileName);
     }
     const data = await response.json();
     return data;
@@ -13,7 +13,7 @@ async function fetch_json(fileName) {
 }
 
 async function jsonToObject(fileName) {
-  const jsonData = await fetch_json(fileName);
+  const jsonData = await fetchJson(fileName);
   function convertObject(obj) {
     const newObj = {};
     Object.entries(obj).forEach(([key, value]) => {
@@ -44,10 +44,10 @@ async function processJson(fileName) {
   }
 }
 
-async function loadText() {
+async function loadText(fileName) {
   return new Promise(async function(resolve, reject) {
       try {
-          await processJson(language);
+          await processJson(fileName);
           document.title = text.title;
           resolve();
       } catch (error) {

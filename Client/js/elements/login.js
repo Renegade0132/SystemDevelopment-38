@@ -1,8 +1,8 @@
 async function login(divID = "screen") {
     try {
         const screen = document.getElementById(divID);
-        var childDiv = screen.appendChild(Object.assign(document.createElement("div"), { id: "login" }));
-        var form = childDiv.appendChild(document.createElement("form"));
+        var login = screen.appendChild(Object.assign(document.createElement("div"), { id: "login" }));
+        var form = login.appendChild(document.createElement("form"));
         form.setAttribute("method", "POST");
 
         var menuLoginLabel = form.appendChild(Object.assign(document.createElement("div"), { id: "login_label", innerHTML: text.login.login }));
@@ -23,8 +23,7 @@ async function login(divID = "screen") {
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText == true) {
                         screen.innerHTML = "";
-                        menu();
-                        //main();
+                        content();
                     }
                     else {
                         alert("Hibás adatok!");

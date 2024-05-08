@@ -1,11 +1,11 @@
-const language = 'en';
 var text;
 
-window.onload = async function() {
+window.onload = async function () {
   try {
-      await loadText();
-      login();   
+    const fileNames = await getFileNames();
+    await loadText(fileNames[0]);
+    login();
   } catch (error) {
-      console.error('Error loading text:', error);
+    console.error('Error loading text:', error);
   }
 };

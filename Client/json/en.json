@@ -7,11 +7,11 @@
         "password": "Password"
     },
     "menu": {
-        "main":"Main Page",
+        "main": "Main Page",
         "courses": "Courses",
         "dashboard": "Dashboard",
         "my_courses": "My Courses",
-        "alerts": "Alerts"
+        "notifications": "Notifications"
     },
     "user": {
         "profile": {
