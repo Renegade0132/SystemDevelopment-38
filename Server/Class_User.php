@@ -91,7 +91,6 @@ class User
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($_POST["name"]) && isset($_POST["degreeID"]) && isset($_POST["userType"])) {
-    echo "User modify succesfully called";
     session_start();
     if (isset($_SESSION["User"])) {
         $userObj = unserialize($_SESSION["User"]);
@@ -156,29 +155,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["variableToGet"])) {
 
         switch ($variableToEcho) {
             case "id":
-                echo $userObj->getID();
+                return $userObj->getID();
                 break;
             case "username":
-                echo $userObj->getUserName();
+                return $userObj->getUserName();
                 break;
             case "name":
-                echo $userObj->getName();
+                return $userObj->getName();
                 break;
             case "password":
-                echo "Unavailable.";
+                return 0;
                 break;
             case "degree_id":
-                echo $userObj->getDegreeID();
+                return $userObj->getDegreeID();
                 break;
             case "user_type":
-                echo $userObj->getUserType();
+                return $userObj->getUserType();
                 break;
             default:
-                echo "Invalid variable";
+            return "Invalid variable";
                 break;
         }
     }else{
-        echo "Session[User] is not available!";
+        return 400; //Session not available - Heandle it that way in FrontEnd
     }
 }
 

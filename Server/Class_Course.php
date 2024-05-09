@@ -5,13 +5,15 @@ class Course {
     private $CourseCode;
     private $CourseName;
     private $CourseCredit;
+    private $ApprovedDegreeIDs;
 
     //Constructor
-    function __construct($ID, $Code, $Name, $Credit){
+    function __construct($ID, $Code, $Name, $Credit, $ApprovedDegrees){
         $this->CourseID = $ID;
         $this->CourseCode = $Code;
         $this->CourseName = $Name;
         $this->CourseCredit = $Credit;
+        $this->ApprovedDegreeIDs = $ApprovedDegrees;
     }
 
     //Getters Setters for variables (No setter for ID)
@@ -42,7 +44,10 @@ class Course {
     function setCourseCredit($inputCourseCredit){
         $this->CourseCredit = $inputCourseCredit;
     }
-
+    // Getter for ApprovedDegreeIDs
+    function getApprovedDegreeIDs(){
+        return $this->ApprovedDegreeIDs;
+    }
 }
 
 ?>

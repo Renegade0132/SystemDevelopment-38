@@ -1,5 +1,5 @@
 <?php
-    include "DB_Connection.php"
+    include "DB_Connection.php";
 
     /* 
     This Function has to receive an inputUserName, an inputName and an inputPassword through Post method!
@@ -41,7 +41,7 @@
 
     //Password transforming to Hash code
 
-    //$hash = hash('sha256', $inputPassword);
+    $hash = hash('sha256', $inputPassword);
 
     //Transform over
 
@@ -69,7 +69,7 @@
 
     try{
     //sql INSERT - if reached, all data should be correct and can be uploaded to the DB
-    $sql = "INSERT INTO users (User_Name,,Name,Email,Password) 
+    $sql = "INSERT INTO users (User_Name, Name, Email, Password) 
     VALUES('". $inputUserName ."','". $inputName ."','". $inputEmail ."','". $hash ."');";
 
     if ($conn->query($sql) === TRUE) {
